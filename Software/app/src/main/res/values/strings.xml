@@ -3,4 +3,7 @@
     <string name="user_label">Usuario</string>
     <string name="user_hint">usuario@unisabana.edu.co</string>
     <string name="password_label">Contraseña</string>
+    <string name="button_login">Continuar</string>
+    <string name="user_required">El usuario es un campo requerido!</string>
+    <string name="password_required">La contraseña es un campo obligatorio!</string>
 </resources>
