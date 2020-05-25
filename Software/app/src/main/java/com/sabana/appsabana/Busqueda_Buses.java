@@ -25,7 +25,7 @@ public class Busqueda_Buses extends AppCompatActivity implements AdapterView.OnI
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Busqueda_Buses.this, MainActivity.class));
+                startActivity(new Intent(Busqueda_Buses.this, MainMenu.class));
             }
         });
 
