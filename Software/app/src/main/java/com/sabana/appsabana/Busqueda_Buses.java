@@ -15,10 +15,19 @@ public class Busqueda_Buses extends AppCompatActivity implements AdapterView.OnI
     Button MpickTime;
     Context mContext=this;
     Button regresar;
+    Button general;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda__buses);
+
+        general =(Button) findViewById(R.id.General);
+        general.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Busqueda_Buses.this,BusesGeneral.class));
+            }
+        });
 
         regresar = (Button) findViewById(R.id.regresar);
 

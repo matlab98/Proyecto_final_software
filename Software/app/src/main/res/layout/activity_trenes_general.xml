@@ -13,7 +13,7 @@
 
             android:layout_height="725dp"
             android:layout_width="268dp"
-            android:id="@+id/recycleBus"
+            android:id="@+id/recycleTren"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,23 +41,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
-                android:text="Buses Sabana"
+                android:text="Tren Sabana"
                 android:ems="10"
                 android:id="@+id/editText"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.25"
                 android:autofillHints=""/>
-        <Button
-                android:text="Buscar"
-                android:layout_width="124dp"
-                android:layout_height="49dp"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
-                android:id="@+id/Buscar" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/editText"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.117"/>
+
         <Button
                 android:text="General"
                 android:layout_width="124dp"
@@ -68,7 +59,8 @@
                 android:id="@+id/General"
                 app:layout_constraintTop_toBottomOf="@+id/Buscar" app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.4" app:layout_constraintVertical_bias="0.073"/>
+                app:layout_constraintHorizontal_bias="0.466" app:layout_constraintVertical_bias="0.073"
+                android:layout_marginBottom="416dp"/>
         <TextView
                 android:text="Regresar"
                 android:layout_width="93dp"
