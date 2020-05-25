@@ -6,4 +6,14 @@
     <string name="button_login">Continuar</string>
     <string name="user_required">El usuario es un campo requerido!</string>
     <string name="password_required">La contraseña es un campo obligatorio!</string>
+
+    <string-array name="Destinos">
+        <item>Portal 170</item>
+        <item>Mazuren</item>
+        <item>Estación 127</item>
+        <item>Estación 153</item>
+        <item>Calle 100</item>
+        <item>Heroes</item>
+    </string-array>
+
 </resources>
