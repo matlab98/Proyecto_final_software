@@ -38,7 +38,7 @@ public class TrenesGeneral extends AppCompatActivity {
         Model m = new Model();
         m.setTitle("Hora: 6:30 P.M");
         m.setDescription("Valor: $3.200");
-        m.setImg(R.drawable.bus1);
+        m.setImg(R.drawable.trensabana);
         models.add(m);
 
 
