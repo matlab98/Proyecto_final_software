@@ -6,7 +6,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Busqueda_Buses">
+        tools:context=".TrenesGeneral">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,10 +57,10 @@
                 android:textColor="#FFFFFF"
                 android:background="@drawable/custom_button"
                 android:id="@+id/General"
-                app:layout_constraintTop_toBottomOf="@+id/Buscar" app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.466" app:layout_constraintVertical_bias="0.073"
-                android:layout_marginBottom="416dp"/>
+                app:layout_constraintHorizontal_bias="0.466" app:layout_constraintVertical_bias="0.887"
+                android:layout_marginBottom="416dp" app:layout_constraintTop_toTopOf="parent"/>
         <TextView
                 android:text="Regresar"
                 android:layout_width="93dp"

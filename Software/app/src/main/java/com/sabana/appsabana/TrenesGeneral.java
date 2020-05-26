@@ -19,9 +19,10 @@ public class TrenesGeneral extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trenes_general);
 
-        mRecyclerViewT=findViewById(R.id.recycleBus);
+        mRecyclerViewT=findViewById(R.id.recycleTren);
         mRecyclerViewT.setLayoutManager(new LinearLayoutManager(this));
-        myAdapterT= new MyAdapterT(this, getMyList());
+        myAdapterT= new MyAdapterT(this, getMyListl());
+        mRecyclerViewT.setAdapter(myAdapterT);
 
         regresar =(Button)findViewById(R.id.regresar);
         regresar.setOnClickListener(new View.OnClickListener() {
@@ -33,16 +34,16 @@ public class TrenesGeneral extends AppCompatActivity {
 
     }
 
-    private ArrayList<Model> getMyList(){
-        ArrayList<Model> models = new ArrayList<>();
-        Model m = new Model();
+    private ArrayList<Modelt> getMyListl(){
+        ArrayList<Modelt> modelst = new ArrayList<>();
+        Modelt m = new Modelt();
         m.setTitle("Hora: 6:30 P.M");
         m.setDescription("Valor: $3.200");
         m.setImg(R.drawable.trensabana);
-        models.add(m);
+        modelst.add(m);
 
 
-        return models;
+        return modelst;
     }
 
 }
