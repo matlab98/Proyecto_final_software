@@ -1,41 +1,67 @@
 package com.sabana.appsabana;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.*;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.sabana.appsabana.modelos.Bus;
+import com.sabana.appsabana.modelos.Train;
+import com.sabana.appsabana.servicios.APIService;
+import com.sabana.appsabana.servicios.APIUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Button Regresar;
-    Button Buscar;
-    Button General;
+
+    private Button Buscar;
+    private Button General;
+    private Button crearBus;
+
+    private Spinner spinnerDestino;
+    private Spinner spinnerAsiento;
+    private Spinner spinnerMarca;
+
+    private EditText editTextConductor;
+    private EditText editTextPlaca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_bus);
 
+        init();
+    }
 
-        Spinner spinner =findViewById(R.id.spinnerDestino);
+    private void init() {
+        spinnerDestino = findViewById(R.id.spinnerDestino);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.Destinos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spinnerDestino.setAdapter(adapter);
+        spinnerDestino.setOnItemSelectedListener(this);
 
-        Spinner spinner2 =findViewById(R.id.spinnerAsiento);
+        spinnerAsiento =findViewById(R.id.spinnerAsiento);
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this, R.array.NumeroAsiento, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
+        spinnerAsiento.setAdapter(adapter2);
+        spinnerAsiento.setOnItemSelectedListener(this);
 
-        Spinner spinner3 =findViewById(R.id.spinnerMarca);
+        spinnerMarca = findViewById(R.id.spinnerMarca);
         ArrayAdapter<CharSequence> adapter3=ArrayAdapter.createFromResource(this, R.array.Marca, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner3.setAdapter(adapter3);
-        spinner3.setOnItemSelectedListener(this);
+        spinnerMarca.setAdapter(adapter3);
+        spinnerMarca.setOnItemSelectedListener(this);
 
-        General = (Button) findViewById(R.id.General);
+        General = findViewById(R.id.General);
         General.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +69,7 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
 
-        Buscar = (Button) findViewById(R.id.Buscar);
+        Buscar = findViewById(R.id.Buscar);
         Buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,17 +77,65 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
             }
         });
 
-        Regresar = (Button) findViewById(R.id.regresar);
-        Regresar.setOnClickListener(new View.OnClickListener() {
+        crearBus = findViewById(R.id.crear_bus);
+        crearBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CrearBus.this , MainMenu.class));
+                sendData();
             }
         });
 
+        editTextConductor = findViewById(R.id.nombre_conductor);
+        editTextPlaca = findViewById(R.id.placa);
+
+    }
+
+    private void sendData() {
+        String placa = editTextPlaca.getText().toString();
+        String seat = spinnerAsiento.getSelectedItem().toString();
+        String reference = spinnerMarca.getSelectedItem().toString();
+        String conductor = editTextConductor.getText().toString();
+        String destino = spinnerDestino.getSelectedItem().toString();
 
 
+        APIService service = APIUtils.getAPIService();
 
+        Map<String, String> params = new HashMap();
+
+        final String token = "abc";
+
+        params.put("placa", placa);
+        params.put("seat", seat);
+        params.put("reference", reference);
+        params.put("key", token);
+        params.put("conductor", conductor);
+        params.put("destino", destino);
+
+        Call<Bus> call = service.createBus(params);
+
+        call.enqueue(new Callback<Bus>() {
+            @Override
+            public void onResponse(Call<Bus> call, Response<Bus> response) {
+                final AlertDialog alertDialog = new AlertDialog.Builder(CrearBus.this)
+                        .setTitle("Exito")
+                        .setMessage("Se ha creado exitosamente el bus!")
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                startActivity(new Intent(CrearBus.this, BusesGeneral.class));
+                            }
+                        })
+                        .create();
+
+                alertDialog.show();
+            }
+
+            @Override
+            public void onFailure(Call<Bus> call, Throwable t) {
+                Toast.makeText(CrearBus.this, "No se pudo crear el bus!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

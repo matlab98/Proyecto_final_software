@@ -48,25 +48,7 @@
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.466" app:layout_constraintVertical_bias="0.887"
                 android:layout_marginBottom="416dp" app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-                android:text="Regresar"
-                android:layout_width="93dp"
-                android:layout_height="32dp"
-                android:id="@+id/textView"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.854"
-                android:textSize="24sp"/>
-        <Button
-                android:text=""
-                android:layout_width="40dp"
-                android:layout_height="48dp"
-                android:background="@drawable/custom_btnregresar"
-                android:id="@+id/regresar" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.866"/>
+
         <Button
                 android:text="Crear"
                 android:layout_width="124dp"
@@ -136,7 +118,7 @@
             app:layout_constraintVertical_bias="0.38"/>
 
     <EditText
-            android:id="@+id/NombreConductor"
+            android:id="@+id/nombre_conductor"
             android:layout_width="184dp"
             android:layout_height="32dp"
             android:background="@drawable/edittext_styles"
@@ -163,7 +145,7 @@
             android:background="@drawable/custom_button"
             android:layout_width="110dp"
             android:layout_height="54dp"
-            android:id="@+id/Crear_Bus" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/crear_tren" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.73"
             app:layout_constraintVertical_bias="0.838"/>

@@ -11,16 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class TrenesGeneral extends AppCompatActivity {
-    Button regresar;
-    Button Crear;
-    RecyclerView mRecyclerViewT;
-    MyAdapterT myAdapterT;
+
+    private Button regresar;
+    private Button Crear;
+    private RecyclerView mRecyclerViewT;
+    private MyAdapterT myAdapterT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trenes_general);
 
-        Crear = (Button) findViewById(R.id.Crear);
+        Crear = findViewById(R.id.Crear);
         Crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,12 +30,12 @@ public class TrenesGeneral extends AppCompatActivity {
             }
         });
 
-        mRecyclerViewT=findViewById(R.id.recycleTren);
+        mRecyclerViewT= findViewById(R.id.recycleTren);
         mRecyclerViewT.setLayoutManager(new LinearLayoutManager(this));
         myAdapterT= new MyAdapterT(this, getMyListl());
         mRecyclerViewT.setAdapter(myAdapterT);
 
-        regresar =(Button)findViewById(R.id.regresar);
+        regresar = findViewById(R.id.regresar);
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

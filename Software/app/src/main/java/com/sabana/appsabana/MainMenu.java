@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.sabana.appsabana.modelos.User;
+
 public class MainMenu extends AppCompatActivity {
    private Button salirlogin;
    private Button Buses;

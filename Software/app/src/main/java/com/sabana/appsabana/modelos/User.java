@@ -1,4 +1,4 @@
-package com.sabana.appsabana;
+package com.sabana.appsabana.modelos;
 
 
 import java.io.Serializable;
