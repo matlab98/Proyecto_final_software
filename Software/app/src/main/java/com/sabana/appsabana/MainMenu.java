@@ -8,25 +8,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainMenu extends AppCompatActivity {
-   Button salirlogin;
-   Button Buses;
-   Button Trense;
+   private Button salirlogin;
+   private Button Buses;
+   private Button Trense;
+
+   private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        init();
+    }
 
-       Trense = (Button)findViewById(R.id.tren);
-       Trense.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(MainMenu.this , TrenesGeneral.class));
-           }
-       });
+    private void init() {
+        Trense = findViewById(R.id.tren);
+        Trense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenu.this , TrenesGeneral.class));
+            }
+        });
 
 
-        Buses=(Button)findViewById(R.id.bus);
+        Buses= findViewById(R.id.bus);
         Buses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,12 +39,14 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        salirlogin = (Button) findViewById(R.id.salirlogin);
+        salirlogin = findViewById(R.id.salirlogin);
         salirlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenu.this, MainActivity.class));
             }
         });
+
+        user = (User) getIntent().getSerializableExtra("User");
     }
 }

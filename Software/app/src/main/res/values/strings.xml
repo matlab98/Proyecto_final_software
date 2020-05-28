@@ -7,6 +7,8 @@
     <string name="user_required">El usuario es un campo requerido!</string>
     <string name="password_required">La contraseña es un campo obligatorio!</string>
 
+    <string name="error_login">No se pudieron verificar las credenciales!</string>
+
     <string-array name="Destinos">
         <item>Portal 170</item>
         <item>Mazuren</item>

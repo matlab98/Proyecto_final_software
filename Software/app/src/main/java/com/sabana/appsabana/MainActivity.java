@@ -4,9 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.sabana.appsabana.servicios.APIService;
+import com.sabana.appsabana.servicios.APIUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,27 +54,48 @@ public class MainActivity extends AppCompatActivity {
 
     private void login() {
         String userName= userEditText.getText().toString().trim();
-        char [] password = passwordEditText.getText().toString().trim().toCharArray();
+        String password = passwordEditText.getText().toString().trim();
 
         if (userName.isEmpty()) {
             userEditText.setError(getResources().getString(R.string.user_required));
             return;
         }
 
-        if (password.length == 0) {
+        if (password.isEmpty()) {
             passwordEditText.setError(getResources().getString(R.string.password_required));
             return;
         }
 
         //Consume services
 
-        if (true) {
-            goToNextActivity();
-        }
+        APIService service = APIUtils.getAPIService();
+
+        Map<String, String> params = new HashMap();
+
+        params.put("user", userName);
+        params.put("password", password);
+
+        Call<User> call = service.login(params);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+
+                goToNextActivity(user);
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.error_login), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
-    private void goToNextActivity() {
-        startActivity(new Intent(this, MainMenu.class));
+    private void goToNextActivity(User user) {
+        Intent intent = new Intent(this, MainMenu.class);
+        intent.putExtra("User", user);
+        startActivity(intent);
     }
     //endregion
 }
