@@ -1,6 +1,5 @@
 package com.sabana.appsabana;
 
-import android.os.Parcelable;
 
 import java.io.Serializable;
 
@@ -16,7 +15,7 @@ public class User implements Serializable {
 
     private String phone;
 
-    private keyModel key;
+    private String key;
 
     private String info;
 
@@ -60,11 +59,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public keyModel getKey() {
+    public String getKey() {
         return key;
     }
 
-    public void setKey(keyModel key) {
+    public void setKey(String key) {
         this.key = key;
     }
 
@@ -77,44 +76,3 @@ public class User implements Serializable {
     }
 }
 
- class keyModel implements Serializable {
-    private String algorithm;
-
-    private String encoded;
-
-    private String format;
-
-    private boolean destroyed;
-
-     public String getAlgorithm() {
-         return algorithm;
-     }
-
-     public void setAlgorithm(String algorithm) {
-         this.algorithm = algorithm;
-     }
-
-     public String getEncoded() {
-         return encoded;
-     }
-
-     public void setEncoded(String encoded) {
-         this.encoded = encoded;
-     }
-
-     public String getFormat() {
-         return format;
-     }
-
-     public void setFormat(String format) {
-         this.format = format;
-     }
-
-     public boolean isDestroyed() {
-         return destroyed;
-     }
-
-     public void setDestroyed(boolean destroyed) {
-         this.destroyed = destroyed;
-     }
- }
