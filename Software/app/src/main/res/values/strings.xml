@@ -2,6 +2,9 @@
     <string name="app_name">AppSabana</string>
     <string name="user_label">Usuario</string>
     <string name="user_hint">usuario@unisabana.edu.co</string>
+    <string name="refrencia_tren"> Referencia </string>
+    <string name="placa">Placa</string>
+    <string name="Nombre_conductor">Nombre</string>
     <string name="password_label">Contraseña</string>
     <string name="button_login">Continuar</string>
     <string name="user_required">El usuario es un campo requerido!</string>
@@ -16,6 +19,47 @@
         <item>Estación 153</item>
         <item>Calle 100</item>
         <item>Heroes</item>
+    </string-array>
+
+    <string-array name="DestinosTren">
+        <item>Parada 134</item>
+        <item>Parada 100</item>
+        <item>Universidad</item>
+        <item>Estación 153</item>
+
+    </string-array>
+
+    <string-array name="NumeroAsiento">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+    </string-array>
+    <string-array name="NumeroAsientoTren">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+    </string-array>
+
+
+    <string-array name="Marca">
+        <item>Toyota</item>
+        <item>Mercedes</item>
+        <item>Audi</item>
+        <item>Hyundai</item>
+        <item>Renault</item>
+        <item>Kia</item>
+    </string-array>
+
+    <string-array name="MarcaTren">
+        <item>XK564</item>
+        <item>XK878L</item>
+        <item>XK876TY</item>
     </string-array>
 
 </resources>

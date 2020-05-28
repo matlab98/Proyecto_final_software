@@ -12,12 +12,21 @@ import java.util.ArrayList;
 
 public class TrenesGeneral extends AppCompatActivity {
     Button regresar;
+    Button Crear;
     RecyclerView mRecyclerViewT;
     MyAdapterT myAdapterT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trenes_general);
+
+        Crear = (Button) findViewById(R.id.Crear);
+        Crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TrenesGeneral.this , CrearTren.class));
+            }
+        });
 
         mRecyclerViewT=findViewById(R.id.recycleTren);
         mRecyclerViewT.setLayoutManager(new LinearLayoutManager(this));

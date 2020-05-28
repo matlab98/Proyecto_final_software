@@ -15,6 +15,7 @@ public class BusesGeneral extends AppCompatActivity {
     Button regresar;
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
+    Button Crear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,14 @@ public class BusesGeneral extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         myAdapter= new MyAdapter(this, getMyList());
         mRecyclerView.setAdapter(myAdapter);
+
+        Crear=(Button) findViewById(R.id.Crear);
+        Crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BusesGeneral.this , CrearBus.class));
+            }
+        });
 
 
         regresar=(Button) findViewById(R.id.regresar);

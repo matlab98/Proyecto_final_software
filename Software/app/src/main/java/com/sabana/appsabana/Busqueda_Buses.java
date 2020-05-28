@@ -16,10 +16,19 @@ public class Busqueda_Buses extends AppCompatActivity implements AdapterView.OnI
     Context mContext=this;
     Button regresar;
     Button general;
+    Button Crear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda__buses);
+
+        Crear = (Button) findViewById(R.id.Crear);
+        Crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Busqueda_Buses.this , CrearBus.class));
+            }
+        });
 
         general =(Button) findViewById(R.id.General);
         general.setOnClickListener(new View.OnClickListener() {
