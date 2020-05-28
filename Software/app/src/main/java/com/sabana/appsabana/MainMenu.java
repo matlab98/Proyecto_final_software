@@ -21,6 +21,7 @@ public class MainMenu extends AppCompatActivity {
         init();
     }
 
+
     private void init() {
         Trense = findViewById(R.id.tren);
         Trense.setOnClickListener(new View.OnClickListener() {
