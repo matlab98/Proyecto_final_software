@@ -65,7 +65,9 @@ public class CrearTren extends AppCompatActivity  implements AdapterView.OnItemS
         General.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CrearTren.this , TrenesGeneral.class));
+                Intent intent = new Intent(CrearTren.this, TrenesGeneral.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 

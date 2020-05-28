@@ -123,7 +123,9 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
-                                startActivity(new Intent(CrearBus.this, BusesGeneral.class));
+                                Intent intent = new Intent(CrearBus.this, BusesGeneral.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                             }
                         })
                         .create();

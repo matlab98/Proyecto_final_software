@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void goToNextActivity(User user) {
         Intent intent = new Intent(this, MainMenu.class);
         intent.putExtra("User", user);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
     //endregion
