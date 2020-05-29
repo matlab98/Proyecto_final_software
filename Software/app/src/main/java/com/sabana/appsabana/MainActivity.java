@@ -3,6 +3,7 @@ package com.sabana.appsabana;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -80,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
+                saveToken(response.body().getKey());
 
-                goToNextActivity(user);
+                goToNextActivity();
             }
 
             @Override
@@ -92,9 +93,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void goToNextActivity(User user) {
+    private void saveToken(String token) {
+        SharedPreferences settings = getApplicationContext().getSharedPreferences(getResources().getString(R.string.preferences), 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(getResources().getString(R.string.token), token);
+        editor.apply();
+    }
+
+    private void goToNextActivity() {
         Intent intent = new Intent(this, MainMenu.class);
-        intent.putExtra("User", user);
+
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

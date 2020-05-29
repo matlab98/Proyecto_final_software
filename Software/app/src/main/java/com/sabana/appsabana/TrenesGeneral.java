@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class TrenesGeneral extends AppCompatActivity {
 
-    private Button regresar;
     private Button Crear;
     private RecyclerView mRecyclerViewT;
     private MyAdapterT myAdapterT;
@@ -34,14 +33,6 @@ public class TrenesGeneral extends AppCompatActivity {
         mRecyclerViewT.setLayoutManager(new LinearLayoutManager(this));
         myAdapterT= new MyAdapterT(this, getMyListl());
         mRecyclerViewT.setAdapter(myAdapterT);
-
-        regresar = findViewById(R.id.regresar);
-        regresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TrenesGeneral.this , MainMenu.class ));
-            }
-        });
 
     }
 

@@ -38,7 +38,7 @@ public class MainMenu extends AppCompatActivity {
         Buses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainMenu.this, Busqueda_Buses.class));
+                startActivity(new Intent(MainMenu.this, BusesGeneral.class));
             }
         });
 
@@ -50,6 +50,5 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        user = (User) getIntent().getSerializableExtra("User");
     }
 }

@@ -7,88 +7,102 @@
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         tools:context=".MainMenu">
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="148dp"
-            android:layout_height="731dp"
-            android:background="#1E2D3E"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
-            android:id="@+id/constraintLayout" app:layout_constraintVertical_bias="0.0">
+        android:id="@+id/constraintLayout"
+        android:layout_width="148dp"
+        android:layout_height="791dp"
+        android:background="#1E2D3E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
         <ImageView
-                android:layout_width="97dp"
-                android:layout_height="88dp" tools:srcCompat="@tools:sample/avatars[0]"
-                android:id="@+id/imageView"
-                app:layout_constraintBottom_toTopOf="@+id/editText" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                android:contentDescription="TODO"/>
-        <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:textColor="#FFFFFF"
-                android:text="servicios"
-                android:ems="10"
-                android:id="@+id/editText"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.25"
-                android:autofillHints=""/>
+            android:id="@+id/imageView"
+            android:layout_width="97dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="TODO"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars[0]" />
+
         <Button
-                android:text="buses"
-                android:layout_width="124dp"
-                android:layout_height="49dp"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
-                android:id="@+id/bus" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/editText"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.117"/>
+            android:id="@+id/bus"
+            android:layout_width="145dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:text="buses"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
         <Button
-                android:text="trenes"
-                android:layout_width="124dp"
-                android:layout_height="49dp"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/custom_button"
-                android:id="@+id/tren"
-                app:layout_constraintTop_toBottomOf="@+id/bus" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.4" app:layout_constraintVertical_bias="0.073"/>
+            android:id="@+id/tren"
+            android:layout_width="148dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:text="trenes"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bus" />
+
         <Button
-                android:text="Salir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="true"
-                android:background="@drawable/custom_button"
-                android:textColor="#FFFFFF"
-                android:id="@+id/salirlogin"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.583" app:layout_constraintVertical_bias="0.891"/>
+            android:id="@+id/salirlogin"
+            android:layout_width="147dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:text="Salir"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tren" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Servicios"
+            android:textColor="#E1D5D5"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <EditText
-            android:layout_width="220dp"
-            android:layout_height="40dp"
-            android:inputType="textPersonName"
-            android:text="Transporte"
-            android:ems="10"
-            android:id="@+id/editText2"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.777" app:layout_constraintVertical_bias="0.007"/>
+
     <ImageView
-            android:layout_width="181dp"
-            android:layout_height="184dp" app:srcCompat="@drawable/trensabana"
-            android:id="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.817" app:layout_constraintVertical_bias="0.202"/>
+        android:id="@+id/imageView2"
+        android:layout_width="181dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/trensabana" />
+
     <ImageView
-            android:layout_width="181dp"
-            android:layout_height="188dp" app:srcCompat="@drawable/bus1"
-            android:id="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/editText2" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/constraintLayout" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.817" app:layout_constraintVertical_bias="0.607"/>
+        android:id="@+id/imageView3"
+        android:layout_width="181dp"
+        android:layout_height="188dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/bus1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,4 +62,7 @@
         <item>XK876TY</item>
     </string-array>
 
+    <string name="preferences">PREF</string>
+    <string name="token">TOKEN</string>
+
 </resources>

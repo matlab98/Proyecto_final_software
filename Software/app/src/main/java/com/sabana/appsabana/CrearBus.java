@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CrearBus extends AppCompatActivity {
 
     private Button Buscar;
     private Button General;
@@ -47,19 +47,16 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.Destinos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDestino.setAdapter(adapter);
-        spinnerDestino.setOnItemSelectedListener(this);
 
         spinnerAsiento =findViewById(R.id.spinnerAsiento);
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this, R.array.NumeroAsiento, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAsiento.setAdapter(adapter2);
-        spinnerAsiento.setOnItemSelectedListener(this);
 
         spinnerMarca = findViewById(R.id.spinnerMarca);
         ArrayAdapter<CharSequence> adapter3=ArrayAdapter.createFromResource(this, R.array.Marca, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMarca.setAdapter(adapter3);
-        spinnerMarca.setOnItemSelectedListener(this);
 
         General = findViewById(R.id.General);
         General.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +99,7 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
 
         Map<String, String> params = new HashMap();
 
-        final String token = "abc";
+        final String token = getApplicationContext().getSharedPreferences(getResources().getString(R.string.preferences ), 0).getString(getResources().getString(R.string.token), "");
 
         params.put("placa", placa);
         params.put("seat", seat);
@@ -140,15 +137,4 @@ public class CrearBus extends AppCompatActivity implements AdapterView.OnItemSel
         });
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text= parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

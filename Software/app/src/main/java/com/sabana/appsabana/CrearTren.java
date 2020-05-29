@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CrearTren extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
+public class CrearTren extends AppCompatActivity  {
 
     private Button General;
     private Button send;
@@ -46,20 +46,17 @@ public class CrearTren extends AppCompatActivity  implements AdapterView.OnItemS
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.DestinosTren, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDestino.setAdapter(adapter);
-        spinnerDestino.setOnItemSelectedListener(this);
 
 
         spinnerReferencia = findViewById(R.id.spinnerReferencia);
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this, R.array.MarcaTren, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerReferencia.setAdapter(adapter2);
-        spinnerReferencia.setOnItemSelectedListener(this);
 
         spinnerAsiento = findViewById(R.id.spinnerAsiento);
         ArrayAdapter<CharSequence> adapter3=ArrayAdapter.createFromResource(this, R.array.NumeroAsientoTren, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAsiento.setAdapter(adapter3);
-        spinnerAsiento.setOnItemSelectedListener(this);
 
         General = findViewById(R.id.General);
         General.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +90,7 @@ public class CrearTren extends AppCompatActivity  implements AdapterView.OnItemS
 
         Map<String, String> params = new HashMap();
 
-        final String token = "abc";
+        final String token = getApplicationContext().getSharedPreferences(getResources().getString(R.string.preferences ), 0).getString(getResources().getString(R.string.token), "");
 
         params.put("key", token);
         params.put("seat", seats);
@@ -128,14 +125,4 @@ public class CrearTren extends AppCompatActivity  implements AdapterView.OnItemS
         });
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text= parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }
