@@ -30,6 +30,10 @@ public class BusesGeneral extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MyAdapter myAdapter;
     Button Crear;
+
+    final ArrayList<Model> models = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,7 @@ public class BusesGeneral extends AppCompatActivity {
 
         mRecyclerView=findViewById(R.id.recycleBus);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myAdapter= new MyAdapter(this, getMyList());
+        myAdapter= new MyAdapter(this, models);
         mRecyclerView.setAdapter(myAdapter);
 
         Crear= findViewById(R.id.Crear);
@@ -56,10 +60,12 @@ public class BusesGeneral extends AppCompatActivity {
                 startActivity(new Intent(BusesGeneral.this , Busqueda_Buses.class));
             }
         });
+
+        fillList();
     }
 
-    private ArrayList<Model> getMyList(){
-        final ArrayList<Model> models = new ArrayList<>();
+    private void fillList(){
+
 
         APIService service = APIUtils.getAPIService();
 
@@ -76,13 +82,17 @@ public class BusesGeneral extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Bus>> call, Response<List<Bus>> response) {
 
-                for (Bus bus: response.body()) {
+                //shows only the last three buses
+                int k = 4;
+                for (int i = response.body().size() - 1; i >=0 && k >= 0 ;--i, --k) {
+                    Bus bus = response.body().get(i);
                     Model m = new Model();
                     m.setTitle("Placa: " + bus.getPlate());
                     m.setDescription("Asientos: " + bus.getSeats());
                     m.setImg(R.drawable.bus1);
-                    models.add(m);
+                    myAdapter.models.add(m);
                 }
+                myAdapter.notifyItemRangeInserted(0, 5 - k);
             }
 
             @Override
@@ -104,7 +114,5 @@ public class BusesGeneral extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
-        return models;
     }
 }
